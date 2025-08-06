@@ -81,49 +81,41 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Wedding Image Hero Section */}
+          {/* Wedding Hero Image */}
           <div className="mt-24 flex justify-center">
-            <div className="relative group max-w-4xl w-full">
-              {/* Main Wedding Image */}
-              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
-                {/* Beautiful gradient background as placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
-                  {/* Overlay pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
-                  
-                  {/* Wedding-themed illustration */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white drop-shadow-lg">
-                      <div className="text-8xl md:text-9xl mb-4 animate-bounce-gentle">💒</div>
-                      <div className="flex items-center justify-center space-x-6 text-6xl md:text-7xl">
-                        <span className="animate-pulse" style={{animationDelay: '0.5s'}}>💍</span>
-                        <span className="animate-bounce-gentle" style={{animationDelay: '1s'}}>💕</span>
-                        <span className="animate-pulse" style={{animationDelay: '1.5s'}}>💐</span>
-                      </div>
-                    </div>
+            <div className="relative max-w-4xl w-full">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-xl">
+                {/* Replace this with your wedding photo */}
+                <img 
+                  src="/images/hero-wedding.jpg" 
+                  alt="Beautiful wedding ceremony"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to gradient if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    if (target.nextElementSibling) {
+                      (target.nextElementSibling as HTMLElement).style.display = 'block';
+                    }
+                  }}
+                />
+                {/* Fallback gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-gray-600">
+                    <div className="text-6xl mb-4">💒</div>
+                    <p className="text-lg font-medium">Add your wedding photo here</p>
+                    <p className="text-sm text-gray-500 mt-2">Place image at: /public/images/hero-wedding.jpg</p>
                   </div>
-                  
-                  {/* Floating hearts animation */}
-                  <div className="absolute top-10 left-10 text-pink-300 text-2xl animate-float opacity-60">💖</div>
-                  <div className="absolute top-20 right-16 text-purple-300 text-xl animate-bounce-gentle opacity-50" style={{animationDelay: '2s'}}>💝</div>
-                  <div className="absolute bottom-20 left-20 text-pink-400 text-3xl animate-pulse opacity-40" style={{animationDelay: '3s'}}>🌹</div>
-                  <div className="absolute bottom-16 right-12 text-purple-400 text-2xl animate-float opacity-50" style={{animationDelay: '1.5s'}}>✨</div>
                 </div>
                 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Subtle overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -left-6 w-12 h-12 bg-pink-300 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -top-4 -right-8 w-8 h-8 bg-purple-300 rounded-full opacity-30 animate-bounce-gentle" style={{animationDelay: '1s'}}></div>
-              <div className="absolute -bottom-8 -left-4 w-16 h-16 bg-indigo-300 rounded-full opacity-25 animate-float" style={{animationDelay: '2s'}}></div>
-              <div className="absolute -bottom-6 -right-6 w-10 h-10 bg-pink-400 rounded-full opacity-20 animate-pulse" style={{animationDelay: '0.5s'}}></div>
             </div>
           </div>
 
           {/* Image caption */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center">
             <p className="text-gray-500 italic font-script text-lg">
               "{t('landing.heroCaption')}"
             </p>

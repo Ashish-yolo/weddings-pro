@@ -1,59 +1,56 @@
-# Adding a Wedding Hero Image
+# 📸 How to Add Your Wedding Photo
 
-## Current Status
-The homepage now includes a beautiful wedding-themed hero section with:
-- ✨ Animated wedding emojis (💒💍💕💐)
-- 🎨 Beautiful gradient background (pink → purple → indigo)
-- 💖 Floating hearts and romantic elements
-- 📱 Responsive design with hover effects
-- 🌍 Multi-language caption support
+## Quick Steps (2 minutes)
 
-## To Add a Real Wedding Image
+### 1. Get Your Wedding Photo
+- **Size**: At least 1200×800 pixels (landscape orientation)
+- **Format**: JPG, PNG, or WebP
+- **Quality**: High resolution, clear and bright
 
-### Option 1: Replace CSS Background (Recommended)
-Update the gradient background in `src/pages/LandingPage.tsx` at line ~90:
-
-```css
-/* Replace this gradient */
-<div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
-
-/* With a background image */
-<div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200" 
-     style={{backgroundImage: 'url("/images/hero-wedding.jpg")', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-```
-
-### Option 2: Add `<img>` Element
-Replace the gradient div with:
-
-```jsx
-<img 
-  src="/images/hero-wedding.jpg" 
-  alt="Beautiful wedding ceremony" 
-  className="absolute inset-0 w-full h-full object-cover"
-/>
-```
-
-### Image Specifications
-- **Size**: Minimum 1200x800px (16:10 aspect ratio)
-- **Format**: JPG or WebP for best performance
-- **Quality**: High resolution, professional photography
-- **Content**: Joyful wedding moment, diverse representation welcome
-- **Lighting**: Romantic, warm lighting preferred
-
-### File Location
-Place your wedding image at:
-```
+### 2. Rename & Place the Photo
+```bash
+# Rename your photo to: hero-wedding.jpg
+# Place it in the public/images/ folder:
 /public/images/hero-wedding.jpg
 ```
 
-### Fallback Design
-The current gradient + emoji design works beautifully as a fallback and maintains the wedding theme even without a photo.
+### 3. That's It! 
+Your photo will automatically appear on the homepage with:
+- ✅ Perfect 16:10 aspect ratio
+- ✅ Responsive design (mobile + desktop)
+- ✅ Professional shadow and rounded corners
+- ✅ Automatic fallback if image doesn't load
 
-## Alternative: Stock Photo Services
-Consider these sources for wedding images:
-- Unsplash (free, high quality)
-- Pexels (free)
-- Getty Images (premium)
-- Shutterstock (premium)
+## File Structure
+```
+weddings-pro/
+├── public/
+│   └── images/
+│       └── hero-wedding.jpg  ← Place your photo here
+├── src/
+└── ...
+```
 
-Search terms: "wedding ceremony", "happy couple", "wedding celebration", "bride groom joy"
+## Recommended Photo Sources
+### Free Options
+- **Unsplash**: [unsplash.com](https://unsplash.com/s/photos/wedding)
+- **Pexels**: [pexels.com](https://www.pexels.com/search/wedding/)
+
+### Search Terms
+- "wedding ceremony"
+- "happy wedding couple" 
+- "wedding celebration"
+- "bride groom outdoor"
+
+## Current Fallback
+If no photo is found, users see:
+- Clean gradient background (pink → purple → blue)
+- Simple 💒 church icon
+- Message: "Add your wedding photo here"
+
+## Technical Details
+The image code automatically:
+- Handles missing images gracefully
+- Optimizes for different screen sizes  
+- Maintains aspect ratio across devices
+- Includes subtle overlay for text readability
