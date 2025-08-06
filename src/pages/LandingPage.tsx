@@ -89,27 +89,18 @@ const LandingPage: React.FC = () => {
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">💒</div>
                 <h4 className="text-2xl font-bold mb-4 text-gray-900">Beautiful Wedding Pages</h4>
                 <p className="text-gray-600 leading-relaxed">Create stunning, personalized wedding pages with all your details, photos, and information. Share your love story beautifully.</p>
-                <div className="mt-6 inline-flex items-center text-purple-600 font-semibold group-hover:text-purple-700">
-                  Learn more →
-                </div>
               </div>
               
               <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📝</div>
                 <h4 className="text-2xl font-bold mb-4 text-gray-900">Smart RSVP System</h4>
                 <p className="text-gray-600 leading-relaxed">Let guests RSVP online with dietary restrictions, song requests, and plus-ones. Track responses in real-time.</p>
-                <div className="mt-6 inline-flex items-center text-purple-600 font-semibold group-hover:text-purple-700">
-                  Learn more →
-                </div>
               </div>
               
               <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📸</div>
                 <h4 className="text-2xl font-bold mb-4 text-gray-900">Photo Collection</h4>
                 <p className="text-gray-600 leading-relaxed">Collect and organize photos from guests during your wedding day. Download all memories in one click.</p>
-                <div className="mt-6 inline-flex items-center text-purple-600 font-semibold group-hover:text-purple-700">
-                  Learn more →
-                </div>
               </div>
             </div>
           </div>
