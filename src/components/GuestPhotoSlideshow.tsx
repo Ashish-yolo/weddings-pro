@@ -105,11 +105,11 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
           
           // Log the specific change
           if (payload.new && payload.old) {
-            console.log('📡 [GuestPhotoSlideshow] Photo updated from:', payload.old.approval_status, 'to:', payload.new.approval_status)
+            console.log('📡 [GuestPhotoSlideshow] Photo updated from:', (payload.old as any)?.approval_status, 'to:', (payload.new as any)?.approval_status)
           } else if (payload.new) {
-            console.log('📡 [GuestPhotoSlideshow] New photo added with approval status:', payload.new.approval_status)
+            console.log('📡 [GuestPhotoSlideshow] New photo added with approval status:', (payload.new as any)?.approval_status)
           } else if (payload.old) {
-            console.log('📡 [GuestPhotoSlideshow] Photo deleted:', payload.old.file_name)
+            console.log('📡 [GuestPhotoSlideshow] Photo deleted:', (payload.old as any)?.file_name)
           }
           
           console.log('📡 [GuestPhotoSlideshow] Refetching photos due to realtime change...')
