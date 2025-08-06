@@ -67,6 +67,9 @@ This project is licensed under the MIT License.
 ## 📚 Documentation Files
 
 - [Contributing](CONTRIBUTING.md) - Guidelines for contributing to this project
+- [Deployment](DEPLOYMENT.md) - Deployment and hosting instructions
+- [Test Execution](test-execution.md)
+- [Testing](TESTING.md)
 - [Wedding Pro Development](wedding-pro-development.md) - Comprehensive Product Requirements Document for the WeddingPro platform
 
 *This list is automatically updated by GitHub Actions.*
