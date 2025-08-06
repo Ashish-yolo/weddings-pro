@@ -1,7 +1,8 @@
 {
   "name": "wedding-app",
+  "description": "Plan your wedding with us! Beautiful wedding planning platform for creating wedding pages, managing RSVPs, and collecting memories.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

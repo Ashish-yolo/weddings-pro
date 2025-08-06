@@ -1,6 +1,6 @@
 # 💍 WeddingPro
 
-A comprehensive wedding management platform that enables couples to create beautiful, interactive wedding pages where they can share their love story, collect RSVPs, and curate photo memories from their special day.
+Plan your wedding with us! A comprehensive wedding management platform that enables couples to create beautiful, interactive wedding pages where they can share their love story, collect RSVPs, and curate photo memories from their special day.
 
 ## ✨ Features
 
