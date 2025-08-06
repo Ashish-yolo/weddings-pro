@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useTranslation } from 'react-i18next'
 import AuthForm from '../components/AuthForm'
 import Layout from '../components/Layout'
+import LanguageSelector from '../components/LanguageSelector'
 
 const LandingPage: React.FC = () => {
   const { user } = useAuth()
   const navigate = useNavigate()
   const [showAuth, setShowAuth] = useState(false)
+  const { t } = useTranslation()
 
   React.useEffect(() => {
     if (user) {
@@ -30,11 +33,14 @@ const LandingPage: React.FC = () => {
         {/* Header */}
         <header className="relative py-6 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-center sm:justify-start space-x-3">
-              <div className="text-3xl">💒</div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                WeddingPro
-              </h1>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl">💒</div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {t('landing.title')}
+                </h1>
+              </div>
+              <LanguageSelector />
             </div>
           </div>
         </header>
@@ -43,19 +49,17 @@ const LandingPage: React.FC = () => {
         <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <div className="inline-flex items-center px-6 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg mb-8">
-              <span className="text-sm font-medium text-purple-600">✨ Make Your Wedding Unforgettable</span>
+              <span className="text-sm font-medium text-purple-600">✨ {t('landing.tagline')}</span>
             </div>
             
             <h2 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
-              Your Perfect
               <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Wedding Journey
+                {t('landing.subtitle')}
               </span>
             </h2>
             
             <p className="mt-8 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Create stunning wedding pages, manage RSVPs effortlessly, and collect precious memories from your special day. 
-              Everything you need to plan and share your perfect wedding, all in one beautiful platform.
+              {t('landing.description')}
             </p>
             
             <div className="mt-16 flex justify-center">
@@ -63,7 +67,7 @@ const LandingPage: React.FC = () => {
                 onClick={() => setShowAuth(true)}
                 className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white px-16 py-6 text-2xl font-bold rounded-2xl hover:from-purple-700 hover:via-pink-700 hover:to-purple-800 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-2 hover:scale-105 animate-pulse hover:animate-none border-2 border-white/20"
               >
-                🚀 Start Planning Free →
+{t('landing.startPlanning')}
               </button>
             </div>
             
@@ -72,7 +76,7 @@ const LandingPage: React.FC = () => {
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                No credit card required • Free forever
+{t('landing.noCredit')}
               </div>
             </div>
           </div>
@@ -80,27 +84,27 @@ const LandingPage: React.FC = () => {
           {/* Features */}
           <div className="mt-32">
             <div className="text-center mb-16">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Everything You Need</h3>
-              <p className="text-xl text-gray-600">Powerful features to make your wedding planning seamless</p>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.everythingYouNeed')}</h3>
+              <p className="text-xl text-gray-600">{t('landing.featuresSubtitle')}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">💒</div>
-                <h4 className="text-2xl font-bold mb-4 text-gray-900">Beautiful Wedding Pages</h4>
-                <p className="text-gray-600 leading-relaxed">Create stunning, personalized wedding pages with all your details, photos, and information. Share your love story beautifully.</p>
+                <h4 className="text-2xl font-bold mb-4 text-gray-900">{t('landing.features.pages.title')}</h4>
+                <p className="text-gray-600 leading-relaxed">{t('landing.features.pages.description')}</p>
               </div>
               
               <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📝</div>
-                <h4 className="text-2xl font-bold mb-4 text-gray-900">Smart RSVP System</h4>
-                <p className="text-gray-600 leading-relaxed">Let guests RSVP online with dietary restrictions, song requests, and plus-ones. Track responses in real-time.</p>
+                <h4 className="text-2xl font-bold mb-4 text-gray-900">{t('landing.features.rsvp.title')}</h4>
+                <p className="text-gray-600 leading-relaxed">{t('landing.features.rsvp.description')}</p>
               </div>
               
               <div className="group p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">📸</div>
-                <h4 className="text-2xl font-bold mb-4 text-gray-900">Photo Collection</h4>
-                <p className="text-gray-600 leading-relaxed">Collect and organize photos from guests during your wedding day. Download all memories in one click.</p>
+                <h4 className="text-2xl font-bold mb-4 text-gray-900">{t('landing.features.photos.title')}</h4>
+                <p className="text-gray-600 leading-relaxed">{t('landing.features.photos.description')}</p>
               </div>
             </div>
           </div>
@@ -108,13 +112,13 @@ const LandingPage: React.FC = () => {
           {/* CTA Section */}
           <div className="mt-32 text-center">
             <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-white">
-              <h3 className="text-4xl font-bold mb-6">Ready to Start Planning?</h3>
-              <p className="text-xl mb-8 opacity-90">Join thousands of couples who've made their wedding planning stress-free</p>
+              <h3 className="text-4xl font-bold mb-6">{t('landing.readyToStart')}</h3>
+              <p className="text-xl mb-8 opacity-90">{t('landing.joinThousands')}</p>
               <button
                 onClick={() => setShowAuth(true)}
                 className="bg-white text-purple-600 px-8 py-4 text-lg rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-bold"
               >
-                Create Your Wedding Page
+{t('landing.createPage')}
               </button>
             </div>
           </div>
@@ -125,7 +129,7 @@ const LandingPage: React.FC = () => {
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
             <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl transform animate-in slide-in-from-bottom-4 duration-300">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">Sign In to WeddingPro</h3>
+                <h3 className="text-2xl font-bold text-gray-900">{t('landing.signIn')}</h3>
                 <button
                   onClick={() => setShowAuth(false)}
                   className="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-colors"

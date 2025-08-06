@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from './LanguageSelector'
 
 const Navigation: React.FC = () => {
   const { user, signOut } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useTranslation()
 
   const handleSignOut = async () => {
     await signOut()
@@ -18,8 +21,8 @@ const Navigation: React.FC = () => {
   }
 
   const navLinks = [
-    { path: '/dashboard', label: 'Dashboard', icon: '🏠' },
-    { path: '/wedding/new', label: 'Create Wedding', icon: '➕' },
+    { path: '/dashboard', label: t('nav.dashboard'), icon: '🏠' },
+    { path: '/wedding/new', label: t('dashboard.createWedding'), icon: '➕' },
   ]
 
   return (
@@ -73,22 +76,23 @@ const Navigation: React.FC = () => {
                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2"
               >
                 <span>🚪</span>
-                <span className="hidden sm:inline">Sign Out</span>
+                <span className="hidden sm:inline">{t('nav.signOut')}</span>
               </button>
             </div>
           ) : (
             <div className="flex items-center space-x-4">
+              <LanguageSelector variant="navbar" />
               <Link
                 to="/"
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
               >
-                Sign In
+                {t('auth.signIn')}
               </Link>
               <Link
                 to="/"
                 className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-md hover:shadow-lg"
               >
-                Get Started
+                {t('dashboard.createWedding')}
               </Link>
             </div>
           )}
