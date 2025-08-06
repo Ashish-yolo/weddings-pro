@@ -16,6 +16,8 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
   const [photoUrls, setPhotoUrls] = useState<string[]>([])
 
   const fetchPhotos = React.useCallback(async () => {
+    console.log('🔄 [GuestPhotoSlideshow] Fetching photos for wedding:', wedding.id)
+    console.log('🔄 [GuestPhotoSlideshow] Current component state - photos count:', photos.length, 'loading:', loading)
     try {
       // Fetch approved photos from database (includes both cover photos and approved guest photos)
       const { data: photosData, error: photosError } = await supabase
@@ -26,38 +28,62 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
         .order('photo_type', { ascending: true }) // Cover photos first
         .order('uploaded_at', { ascending: false })
 
-      if (photosError) throw photosError
+      if (photosError) {
+        console.error('❌ [GuestPhotoSlideshow] Database error:', photosError)
+        throw photosError
+      }
 
+      console.log('📸 [GuestPhotoSlideshow] Query result - Found photos:', photosData?.length || 0)
+      console.log('📸 [GuestPhotoSlideshow] Photo details:', photosData)
+      
       setPhotos(photosData || [])
       
       // Reset slideshow index if current index is out of bounds
       if (currentPhotoIndex >= (photosData?.length || 0)) {
+        console.log('🔄 [GuestPhotoSlideshow] Resetting slideshow index from', currentPhotoIndex, 'to 0')
         setCurrentPhotoIndex(0)
       }
 
       // Get public URLs for each photo
       if (photosData && photosData.length > 0) {
+        console.log('🌐 [GuestPhotoSlideshow] Generating public URLs for', photosData.length, 'photos')
         const urls = await Promise.all(
-          photosData.map(async (photo) => {
+          photosData.map(async (photo, index) => {
             // Use different storage bucket based on photo type
             const bucket = photo.photo_type === 'cover' ? 'wedding-images' : 'wedding-photos'
+            console.log(`🗂️ [GuestPhotoSlideshow] Photo ${index + 1}:`, {
+              filename: photo.file_name,
+              bucket: bucket,
+              path: photo.file_path,
+              photoType: photo.photo_type,
+              approvalStatus: photo.approval_status
+            })
+            
             const { data } = supabase.storage
               .from(bucket)
               .getPublicUrl(photo.file_path)
+            
+            console.log(`🔗 [GuestPhotoSlideshow] Generated URL ${index + 1}:`, data.publicUrl)
             return data.publicUrl
           })
         )
+        console.log('✅ [GuestPhotoSlideshow] All photo URLs generated successfully:', urls.length, 'URLs')
         setPhotoUrls(urls)
       } else {
         // Clear photos and URLs if no approved photos
+        console.log('⚠️ [GuestPhotoSlideshow] No approved photos found, clearing slideshow')
+        setPhotos([])
         setPhotoUrls([])
       }
     } catch (error) {
-      console.error('Error fetching photos:', error)
+      console.error('❌ [GuestPhotoSlideshow] Error in fetchPhotos:', error)
+      setPhotos([])
+      setPhotoUrls([])
     } finally {
+      console.log('🔄 [GuestPhotoSlideshow] Setting loading to false')
       setLoading(false)
     }
-  }, [wedding.id, currentPhotoIndex])
+  }, [wedding.id])
 
   useEffect(() => {
     fetchPhotos()
@@ -74,7 +100,19 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
           filter: `wedding_id=eq.${wedding.id}`
         },
         (payload) => {
-          console.log('Photo change detected:', payload.eventType, 'refetching photos...')
+          console.log('📡 [GuestPhotoSlideshow] Photo change detected:', payload.eventType, 'for wedding:', wedding.id)
+          console.log('📡 [GuestPhotoSlideshow] Realtime payload:', payload)
+          
+          // Log the specific change
+          if (payload.new && payload.old) {
+            console.log('📡 [GuestPhotoSlideshow] Photo updated from:', payload.old.approval_status, 'to:', payload.new.approval_status)
+          } else if (payload.new) {
+            console.log('📡 [GuestPhotoSlideshow] New photo added with approval status:', payload.new.approval_status)
+          } else if (payload.old) {
+            console.log('📡 [GuestPhotoSlideshow] Photo deleted:', payload.old.file_name)
+          }
+          
+          console.log('📡 [GuestPhotoSlideshow] Refetching photos due to realtime change...')
           fetchPhotos()
         }
       )
@@ -95,7 +133,16 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
     }
   }, [photos.length])
 
+  console.log('🖼️ [GuestPhotoSlideshow] Render state:', {
+    loading,
+    photosCount: photos.length,
+    urlsCount: photoUrls.length,
+    currentIndex: currentPhotoIndex,
+    weddingId: wedding.id
+  })
+
   if (loading) {
+    console.log('🔄 [GuestPhotoSlideshow] Rendering loading state')
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border-2 border-pink-100 animate-fade-in-up">
         <div className="text-center">
@@ -107,6 +154,7 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
   }
 
   if (photos.length === 0) {
+    console.log('📷 [GuestPhotoSlideshow] Rendering no photos state')
     return (
       <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border-2 border-pink-100 animate-fade-in-up">
         <div className="text-center">
@@ -119,6 +167,9 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
       </div>
     )
   }
+
+  console.log('🎬 [GuestPhotoSlideshow] Rendering slideshow with', photos.length, 'photos and', photoUrls.length, 'URLs')
+  console.log('🎬 [GuestPhotoSlideshow] Current photo URL:', photoUrls[currentPhotoIndex])
 
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border-2 border-pink-100 overflow-hidden animate-fade-in-up">
