@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import AuthForm from '../components/AuthForm'
 import Layout from '../components/Layout'
 import LanguageSelector from '../components/LanguageSelector'
+import heroWeddingImage from '../assets/hero-wedding.jpg'
 
 const LandingPage: React.FC = () => {
   const { user } = useAuth()
@@ -87,7 +88,7 @@ const LandingPage: React.FC = () => {
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-xl">
                 {/* Replace this with your wedding photo */}
                 <img 
-                  src="/images/hero-wedding.jpg" 
+                  src={heroWeddingImage} 
                   alt="Beautiful wedding ceremony"
                   className="w-full h-full object-cover"
                   onLoad={() => console.log('✅ Wedding photo loaded successfully!')}
