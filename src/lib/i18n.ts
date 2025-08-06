@@ -316,12 +316,356 @@ const hiTranslations = {
   }
 }
 
+// Spanish translations
+const esTranslations = {
+  common: {
+    loading: 'Cargando...',
+    error: 'Error',
+    save: 'Guardar',
+    cancel: 'Cancelar',
+    delete: 'Eliminar',
+    edit: 'Editar',
+    back: 'Atrás',
+    next: 'Siguiente',
+    submit: 'Enviar',
+    close: 'Cerrar',
+    yes: 'Sí',
+    no: 'No'
+  },
+  nav: {
+    home: 'Inicio',
+    dashboard: 'Panel',
+    signOut: 'Cerrar Sesión',
+    language: 'Idioma'
+  },
+  landing: {
+    title: 'WeddingPro',
+    subtitle: 'Tu Viaje de Boda Perfecto',
+    tagline: 'Haz Tu Boda Inolvidable',
+    description: 'Crea páginas de boda impresionantes, gestiona RSVPs sin esfuerzo y recoge recuerdos preciosos de tu día especial. Todo lo que necesitas para planificar y compartir tu boda perfecta, todo en una plataforma hermosa.',
+    startPlanning: '🚀 Empezar Gratis →',
+    noCredit: 'Sin tarjeta de crédito • Gratis para siempre',
+    everythingYouNeed: 'Todo lo que Necesitas',
+    featuresSubtitle: 'Funciones poderosas para hacer tu planificación de boda sin problemas',
+    features: {
+      pages: {
+        title: 'Páginas de Boda Hermosas',
+        description: 'Crea páginas de boda impresionantes y personalizadas con todos tus detalles, fotos e información. Comparte tu historia de amor de manera hermosa.'
+      },
+      rsvp: {
+        title: 'Sistema RSVP Inteligente',
+        description: 'Permite a los invitados confirmar su asistencia en línea con restricciones dietéticas, solicitudes de canciones y acompañantes. Rastrea las respuestas en tiempo real.'
+      },
+      photos: {
+        title: 'Colección de Fotos',
+        description: 'Recoge y organiza fotos de los invitados durante tu día de boda. Descarga todos los recuerdos con un clic.'
+      }
+    },
+    readyToStart: '¿Listo para Empezar a Planificar?',
+    joinThousands: 'Únete a miles de parejas que han hecho su planificación de boda libre de estrés',
+    createPage: 'Crea Tu Página de Boda',
+    signIn: 'Iniciar Sesión en WeddingPro'
+  },
+  auth: {
+    signIn: 'Iniciar Sesión',
+    signUp: 'Registrarse',
+    email: 'Correo Electrónico',
+    enterEmail: 'Ingresa tu correo electrónico',
+    sendCode: 'Enviar Código de Verificación',
+    verificationCode: 'Código de Verificación',
+    enterCode: 'Ingresa el código de 6 dígitos enviado a tu correo',
+    verify: 'Verificar e Iniciar Sesión',
+    codeSent: '¡Código de verificación enviado!',
+    checkEmail: 'Revisa tu correo para el código de verificación.',
+    resendCode: 'Reenviar Código',
+    signOut: 'Cerrar Sesión'
+  },
+  dashboard: {
+    title: 'Panel de Boda',
+    welcome: 'Bienvenido a tu centro de planificación de boda',
+    createWedding: 'Crear Boda',
+    myWeddings: 'Mis Bodas',
+    noWeddings: 'No hay bodas creadas aún',
+    getStarted: '¡Crea tu primera boda para empezar!',
+    viewPublic: 'Ver Página Pública',
+    manageRSVPs: 'Gestionar RSVPs',
+    editWedding: 'Editar Boda'
+  },
+  wedding: {
+    title: 'Título de la Boda',
+    brideName: 'Nombre de la Novia',
+    groomName: 'Nombre del Novio',
+    weddingDate: 'Fecha de la Boda',
+    weddingTime: 'Hora de la Boda',
+    venue: 'Lugar',
+    address: 'Dirección',
+    description: 'Descripción',
+    createWedding: 'Crear Boda',
+    updateWedding: 'Actualizar Boda',
+    deleteWedding: 'Eliminar Boda',
+    publicUrl: 'URL Pública',
+    shareLink: 'Comparte este enlace con tus invitados',
+    gettingMarried: '¡se van a casar!',
+    daysToGo: '{{count}} días restantes',
+    tomorrow: 'Mañana',
+    today: '¡Hoy!',
+    messageFromUs: 'Un Mensaje de Nosotros'
+  },
+  rsvp: {
+    title: 'RSVP',
+    pleaseRsvp: 'Por Favor Confirma',
+    cantWait: '¡No podemos esperar a celebrar contigo! Házanos saber si nos acompañarás.',
+    guestName: 'Tu Nombre',
+    email: 'Correo Electrónico',
+    attending: '¿Asistirás?',
+    yesAttending: '¡Sí, estaré ahí! 🎉',
+    notAttending: 'Lo siento, no puedo ir 😔',
+    dietaryRestrictions: 'Restricciones Dietéticas',
+    songRequest: 'Solicitud de Canción',
+    message: 'Mensaje para la Pareja',
+    plusOne: '¿Traes acompañante?',
+    plusOneName: 'Nombre del Acompañante',
+    submitRsvp: 'Enviar RSVP',
+    thankYou: '¡Gracias!',
+    rsvpSubmitted: 'Tu RSVP se ha enviado exitosamente.',
+    viewRsvps: 'Ver RSVPs',
+    pending: 'Pendiente',
+    approved: 'Aprobado'
+  },
+  photos: {
+    title: 'Fotos',
+    guestPhotos: 'Fotos de Invitados',
+    shareMemories: 'Comparte Tus Recuerdos',
+    uploadPhotos: '¡Ayúdanos a capturar cada momento hermoso de nuestro día especial!',
+    noPhotos: 'No hay fotos compartidas aún. ¡Sé el primero en compartir un recuerdo!',
+    uploadButton: 'Subir Fotos',
+    selectPhotos: 'Selecciona fotos para subir',
+    uploading: 'Subiendo...',
+    uploadSuccess: '¡Fotos subidas exitosamente!',
+    sharedBy: 'Compartido por: {{name}}',
+    anonymous: 'Anónimo',
+    weddingPhotos: '{{count}} {{count, plural, one {foto} other {fotos}}} de boda'
+  },
+  timeline: {
+    title: 'Nuestra Historia de Amor',
+    subtitle: 'El viaje que nos unió',
+    addEvent: 'Agregar Evento',
+    editEvent: 'Editar Evento',
+    eventTitle: 'Título del Evento',
+    eventDate: 'Fecha',
+    eventDescription: 'Descripción',
+    saveEvent: 'Guardar Evento',
+    noEvents: 'No hay eventos en la cronología aún. ¡Agrega tu primer hito!',
+    deleteEvent: 'Eliminar Evento'
+  },
+  countdown: {
+    title: 'Cuenta Regresiva para Nuestro Gran Día',
+    days: 'Días',
+    hours: 'Horas',
+    minutes: 'Minutos',
+    seconds: 'Segundos',
+    justMarried: '¡Recién Casados! 💕'
+  },
+  footer: {
+    thankYou: 'Gracias por ser parte de nuestro viaje. ¡Tu presencia (virtual o en persona) significa el mundo para nosotros!',
+    couple: '— {{bride}} y {{groom}}',
+    happyCouple: '— La Pareja Feliz'
+  }
+}
+
+// French translations
+const frTranslations = {
+  common: {
+    loading: 'Chargement...',
+    error: 'Erreur',
+    save: 'Sauvegarder',
+    cancel: 'Annuler',
+    delete: 'Supprimer',
+    edit: 'Modifier',
+    back: 'Retour',
+    next: 'Suivant',
+    submit: 'Envoyer',
+    close: 'Fermer',
+    yes: 'Oui',
+    no: 'Non'
+  },
+  nav: {
+    home: 'Accueil',
+    dashboard: 'Tableau de bord',
+    signOut: 'Se déconnecter',
+    language: 'Langue'
+  },
+  landing: {
+    title: 'WeddingPro',
+    subtitle: 'Votre Voyage de Mariage Parfait',
+    tagline: 'Rendez Votre Mariage Inoubliable',
+    description: 'Créez de superbes pages de mariage, gérez les RSVP sans effort et collectez de précieux souvenirs de votre jour spécial. Tout ce dont vous avez besoin pour planifier et partager votre mariage parfait, le tout sur une belle plateforme.',
+    startPlanning: '🚀 Commencer Gratuitement →',
+    noCredit: 'Aucune carte de crédit requise • Gratuit pour toujours',
+    everythingYouNeed: 'Tout ce dont Vous Avez Besoin',
+    featuresSubtitle: 'Des fonctionnalités puissantes pour rendre la planification de votre mariage fluide',
+    features: {
+      pages: {
+        title: 'Belles Pages de Mariage',
+        description: 'Créez de superbes pages de mariage personnalisées avec tous vos détails, photos et informations. Partagez votre histoire d\'amour magnifiquement.'
+      },
+      rsvp: {
+        title: 'Système RSVP Intelligent',
+        description: 'Permettez aux invités de confirmer en ligne avec des restrictions alimentaires, des demandes de chansons et des accompagnateurs. Suivez les réponses en temps réel.'
+      },
+      photos: {
+        title: 'Collection de Photos',
+        description: 'Collectez et organisez les photos des invités pendant votre jour de mariage. Téléchargez tous les souvenirs en un clic.'
+      }
+    },
+    readyToStart: 'Prêt à Commencer la Planification?',
+    joinThousands: 'Rejoignez des milliers de couples qui ont rendu leur planification de mariage sans stress',
+    createPage: 'Créez Votre Page de Mariage',
+    signIn: 'Se Connecter à WeddingPro'
+  },
+  auth: {
+    signIn: 'Se connecter',
+    signUp: 'S\'inscrire',
+    email: 'Email',
+    enterEmail: 'Entrez votre email',
+    sendCode: 'Envoyer le Code de Vérification',
+    verificationCode: 'Code de Vérification',
+    enterCode: 'Entrez le code à 6 chiffres envoyé à votre email',
+    verify: 'Vérifier et Se Connecter',
+    codeSent: 'Code de vérification envoyé!',
+    checkEmail: 'Vérifiez votre email pour le code de vérification.',
+    resendCode: 'Renvoyer le Code',
+    signOut: 'Se déconnecter'
+  },
+  dashboard: {
+    title: 'Tableau de Bord Mariage',
+    welcome: 'Bienvenue dans votre centre de planification de mariage',
+    createWedding: 'Créer un Mariage',
+    myWeddings: 'Mes Mariages',
+    noWeddings: 'Aucun mariage créé encore',
+    getStarted: 'Créez votre premier mariage pour commencer!',
+    viewPublic: 'Voir la Page Publique',
+    manageRSVPs: 'Gérer les RSVPs',
+    editWedding: 'Modifier le Mariage'
+  },
+  wedding: {
+    title: 'Titre du Mariage',
+    brideName: 'Nom de la Mariée',
+    groomName: 'Nom du Marié',
+    weddingDate: 'Date du Mariage',
+    weddingTime: 'Heure du Mariage',
+    venue: 'Lieu',
+    address: 'Adresse',
+    description: 'Description',
+    createWedding: 'Créer un Mariage',
+    updateWedding: 'Mettre à jour le Mariage',
+    deleteWedding: 'Supprimer le Mariage',
+    publicUrl: 'URL Publique',
+    shareLink: 'Partagez ce lien avec vos invités',
+    gettingMarried: 'se marient!',
+    daysToGo: '{{count}} jours restants',
+    tomorrow: 'Demain',
+    today: 'Aujourd\'hui!',
+    messageFromUs: 'Un Message de Notre Part'
+  },
+  rsvp: {
+    title: 'RSVP',
+    pleaseRsvp: 'Veuillez Confirmer',
+    cantWait: 'Nous avons hâte de célébrer avec vous! Faites-nous savoir si vous nous rejoindrez.',
+    guestName: 'Votre Nom',
+    email: 'Email',
+    attending: 'Assisterez-vous?',
+    yesAttending: 'Oui, je serai là! 🎉',
+    notAttending: 'Désolé, je ne peux pas venir 😔',
+    dietaryRestrictions: 'Restrictions Alimentaires',
+    songRequest: 'Demande de Chanson',
+    message: 'Message pour le Couple',
+    plusOne: 'Amenez-vous un accompagnateur?',
+    plusOneName: 'Nom de l\'Accompagnateur',
+    submitRsvp: 'Envoyer RSVP',
+    thankYou: 'Merci!',
+    rsvpSubmitted: 'Votre RSVP a été envoyé avec succès.',
+    viewRsvps: 'Voir les RSVPs',
+    pending: 'En attente',
+    approved: 'Approuvé'
+  },
+  photos: {
+    title: 'Photos',
+    guestPhotos: 'Photos des Invités',
+    shareMemories: 'Partagez Vos Souvenirs',
+    uploadPhotos: 'Aidez-nous à capturer chaque beau moment de notre jour spécial!',
+    noPhotos: 'Aucune photo partagée encore. Soyez le premier à partager un souvenir!',
+    uploadButton: 'Télécharger des Photos',
+    selectPhotos: 'Sélectionnez des photos à télécharger',
+    uploading: 'Téléchargement...',
+    uploadSuccess: 'Photos téléchargées avec succès!',
+    sharedBy: 'Partagé par: {{name}}',
+    anonymous: 'Anonyme',
+    weddingPhotos: '{{count}} {{count, plural, one {photo} other {photos}}} de mariage'
+  },
+  timeline: {
+    title: 'Notre Histoire d\'Amour',
+    subtitle: 'Le voyage qui nous a réunis',
+    addEvent: 'Ajouter un Événement',
+    editEvent: 'Modifier l\'Événement',
+    eventTitle: 'Titre de l\'Événement',
+    eventDate: 'Date',
+    eventDescription: 'Description',
+    saveEvent: 'Sauvegarder l\'Événement',
+    noEvents: 'Aucun événement dans la chronologie encore. Ajoutez votre premier jalon!',
+    deleteEvent: 'Supprimer l\'Événement'
+  },
+  countdown: {
+    title: 'Compte à Rebours vers Notre Grand Jour',
+    days: 'Jours',
+    hours: 'Heures',
+    minutes: 'Minutes',
+    seconds: 'Secondes',
+    justMarried: 'Juste Mariés! 💕'
+  },
+  footer: {
+    thankYou: 'Merci de faire partie de notre voyage. Votre présence (virtuelle ou en personne) signifie le monde pour nous!',
+    couple: '— {{bride}} et {{groom}}',
+    happyCouple: '— Le Couple Heureux'
+  }
+}
+
 const resources = {
   en: {
     translation: enTranslations
   },
   hi: {
     translation: hiTranslations
+  },
+  es: {
+    translation: esTranslations
+  },
+  fr: {
+    translation: frTranslations
+  },
+  de: {
+    translation: enTranslations // Fallback to English for now
+  },
+  it: {
+    translation: enTranslations // Fallback to English for now
+  },
+  pt: {
+    translation: enTranslations // Fallback to English for now
+  },
+  ru: {
+    translation: enTranslations // Fallback to English for now
+  },
+  ja: {
+    translation: enTranslations // Fallback to English for now
+  },
+  ko: {
+    translation: enTranslations // Fallback to English for now
+  },
+  zh: {
+    translation: enTranslations // Fallback to English for now
+  },
+  ar: {
+    translation: enTranslations // Fallback to English for now
   }
 }
 
