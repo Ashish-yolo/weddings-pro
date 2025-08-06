@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(mv:*)",
+      "Bash(true)",
+      "Bash(rmdir:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "mcp__supabase__apply_migration",
+      "mcp__supabase__get_project_url",
+      "mcp__supabase__get_anon_key",
+      "Bash(npx tailwindcss init:*)",
+      "mcp__supabase__execute_sql",
+      "Bash(npm run dev:*)",
+      "Bash(lsof:*)",
+      "Bash(npm run build:*)",
+      "Bash(pkill:*)",
+      "mcp__supabase__list_tables",
+      "mcp__supabase__search_docs",
+      "mcp__supabase__get_logs",
+      "mcp__supabase__generate_typescript_types",
+      "Bash(python:*)",
+      "Bash(chmod:*)",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}
