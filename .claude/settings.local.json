@@ -36,7 +36,9 @@
       "Bash(rm:*)",
       "Bash(npx tsc:*)",
       "Bash(npm run lint)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
