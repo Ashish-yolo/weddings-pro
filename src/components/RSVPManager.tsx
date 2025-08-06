@@ -332,7 +332,7 @@ const RSVPCard: React.FC<RSVPCardProps> = ({
           {guest.plus_ones && guest.plus_ones.length > 0 && (
             <div className="mt-4 pt-4 border-t border-gray-200">
               <h5 className="text-sm font-semibold text-gray-700 mb-2">Plus Ones:</h5>
-              {guest.plus_ones.map((plusOne, index) => (
+              {guest.plus_ones.map((plusOne) => (
                 <div key={plusOne.id} className="text-sm text-gray-600 ml-4">
                   <span className="font-medium">{plusOne.first_name} {plusOne.last_name}</span>
                   {plusOne.dietary_restrictions && (

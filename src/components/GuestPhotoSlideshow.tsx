@@ -15,42 +15,6 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [photoUrls, setPhotoUrls] = useState<string[]>([])
 
-  useEffect(() => {
-    fetchPhotos()
-
-    // Set up real-time subscription for photo changes
-    const photoSubscription = supabase
-      .channel(`photos-${wedding.id}`)
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'photos',
-          filter: `wedding_id=eq.${wedding.id}`
-        },
-        (payload) => {
-          console.log('Photo change detected:', payload.eventType, 'refetching photos...')
-          fetchPhotos()
-        }
-      )
-      .subscribe()
-
-    return () => {
-      photoSubscription.unsubscribe()
-    }
-  }, [wedding.id, fetchPhotos])
-
-  useEffect(() => {
-    if (photos.length > 0) {
-      const interval = setInterval(() => {
-        setCurrentPhotoIndex((prev) => (prev + 1) % photos.length)
-      }, 4000) // Change photo every 4 seconds
-
-      return () => clearInterval(interval)
-    }
-  }, [photos.length])
-
   const fetchPhotos = React.useCallback(async () => {
     try {
       // Fetch approved photos from database (includes both cover photos and approved guest photos)
@@ -94,6 +58,42 @@ const GuestPhotoSlideshow: React.FC<GuestPhotoslideshowProps> = ({ wedding }) =>
       setLoading(false)
     }
   }, [wedding.id, currentPhotoIndex])
+
+  useEffect(() => {
+    fetchPhotos()
+
+    // Set up real-time subscription for photo changes
+    const photoSubscription = supabase
+      .channel(`photos-${wedding.id}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'photos',
+          filter: `wedding_id=eq.${wedding.id}`
+        },
+        (payload) => {
+          console.log('Photo change detected:', payload.eventType, 'refetching photos...')
+          fetchPhotos()
+        }
+      )
+      .subscribe()
+
+    return () => {
+      photoSubscription.unsubscribe()
+    }
+  }, [wedding.id, fetchPhotos])
+
+  useEffect(() => {
+    if (photos.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentPhotoIndex((prev) => (prev + 1) % photos.length)
+      }, 4000) // Change photo every 4 seconds
+
+      return () => clearInterval(interval)
+    }
+  }, [photos.length])
 
   if (loading) {
     return (
