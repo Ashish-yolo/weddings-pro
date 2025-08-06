@@ -90,8 +90,10 @@ const LandingPage: React.FC = () => {
                   src="/images/hero-wedding.jpg" 
                   alt="Beautiful wedding ceremony"
                   className="w-full h-full object-cover"
+                  onLoad={() => console.log('✅ Wedding photo loaded successfully!')}
                   onError={(e) => {
                     // Fallback to gradient if image doesn't exist
+                    console.log('❌ Wedding photo failed to load, showing fallback');
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     if (target.nextElementSibling) {
