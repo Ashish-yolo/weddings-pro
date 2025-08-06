@@ -29,19 +29,13 @@ const LandingPage: React.FC = () => {
 
         {/* Header */}
         <header className="relative py-6 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center space-x-3">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-center sm:justify-start space-x-3">
               <div className="text-3xl">💒</div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 WeddingPro
               </h1>
             </div>
-            <button
-              onClick={() => setShowAuth(true)}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              Get Started
-            </button>
           </div>
         </header>
 
@@ -64,16 +58,22 @@ const LandingPage: React.FC = () => {
               Everything you need to plan and share your perfect wedding, all in one beautiful platform.
             </p>
             
-            <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-16 flex justify-center">
               <button
                 onClick={() => setShowAuth(true)}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 text-lg rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold"
+                className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white px-16 py-6 text-2xl font-bold rounded-2xl hover:from-purple-700 hover:via-pink-700 hover:to-purple-800 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-2 hover:scale-105 animate-pulse hover:animate-none border-2 border-white/20"
               >
-                Start Planning Free →
+                🚀 Start Planning Free →
               </button>
-              <button className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 text-lg rounded-xl hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200 font-semibold">
-                View Demo
-              </button>
+            </div>
+            
+            <div className="mt-8 flex justify-center">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium">
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                No credit card required • Free forever
+              </div>
             </div>
           </div>
 
