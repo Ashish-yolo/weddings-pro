@@ -50,7 +50,8 @@ const enTranslations = {
     readyToStart: 'Ready to Start Planning?',
     joinThousands: 'Join thousands of couples who\'ve made their wedding planning stress-free',
     createPage: 'Create Your Wedding Page',
-    signIn: 'Sign In to WeddingPro'
+    signIn: 'Sign In to WeddingPro',
+    heroCaption: 'Your perfect wedding moments, beautifully planned and shared'
   },
   auth: {
     signIn: 'Sign In',
@@ -207,7 +208,8 @@ const hiTranslations = {
     readyToStart: 'प्लानिंग शुरू करने के लिए तैयार हैं?',
     joinThousands: 'हजारों कपल्स के साथ जुड़ें जिन्होंने अपनी शादी की प्लानिंग को तनावमुक्त बनाया है',
     createPage: 'अपना शादी का पेज बनाएं',
-    signIn: 'वेडिंगप्रो में साइन इन करें'
+    signIn: 'वेडिंगप्रो में साइन इन करें',
+    heroCaption: 'आपके परफेक्ट शादी के पल, खूबसूरती से प्लान और शेयर किए गए'
   },
   auth: {
     signIn: 'साइन इन',
@@ -364,7 +366,8 @@ const esTranslations = {
     readyToStart: '¿Listo para Empezar a Planificar?',
     joinThousands: 'Únete a miles de parejas que han hecho su planificación de boda libre de estrés',
     createPage: 'Crea Tu Página de Boda',
-    signIn: 'Iniciar Sesión en WeddingPro'
+    signIn: 'Iniciar Sesión en WeddingPro',
+    heroCaption: 'Tus momentos de boda perfectos, bellamente planificados y compartidos'
   },
   auth: {
     signIn: 'Iniciar Sesión',
@@ -521,7 +524,8 @@ const frTranslations = {
     readyToStart: 'Prêt à Commencer la Planification?',
     joinThousands: 'Rejoignez des milliers de couples qui ont rendu leur planification de mariage sans stress',
     createPage: 'Créez Votre Page de Mariage',
-    signIn: 'Se Connecter à WeddingPro'
+    signIn: 'Se Connecter à WeddingPro',
+    heroCaption: 'Vos moments de mariage parfaits, magnifiquement planifiés et partagés'
   },
   auth: {
     signIn: 'Se connecter',

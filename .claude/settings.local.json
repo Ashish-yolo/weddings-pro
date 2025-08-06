@@ -35,7 +35,8 @@
       "Bash(vercel:*)",
       "Bash(rm:*)",
       "Bash(npx tsc:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   }
